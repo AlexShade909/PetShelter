@@ -86,75 +86,74 @@ func main() {
 		stayShelerName: Shelter1.nameShelter,
 	}
 
-	varInput := 0
+	for {
+		varChooseNameDog := 0
+		varPickUpDog := 0
 
-	clearConsole()
+		clearConsole()
 
-	println("Собаки, которых вы могли бы забрать из приюта\nЧтобы узнать больше о питомце введите его номер")
-	println(Dog1.numberInBase, Dog1.nickname)
-	println(Dog2.numberInBase, Dog2.nickname)
-	println(Dog3.numberInBase, Dog3.nickname)
+		println("Собаки, которых вы могли бы забрать из приюта\nЧтобы узнать больше о питомце введите его номер")
+		println(Dog1.numberInBase, Dog1.nickname)
+		println(Dog2.numberInBase, Dog2.nickname)
+		println(Dog3.numberInBase, Dog3.nickname)
 
-	println("Введите номер собаки, о которой хотите узнать больше:\n")
-	fmt.Scan(&varInput)
+		println("Введите номер собаки, о которой хотите узнать больше:\n")
+		fmt.Scan(&varChooseNameDog)
 
-	clearConsole()
+		clearConsole()
 
-	if varInput == Dog1.numberInBase {
-		Dog1.printDogInfo()
+		if varChooseNameDog == Dog1.numberInBase {
+			Dog1.printDogInfo()
 
-		println()
-		println()
-		println()
-		println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
-		fmt.Scan(&varInput)
+			println()
+			println()
+			println()
+			println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
+			fmt.Scan(&varPickUpDog)
 
-		if varInput == 1 {
-			clearConsole()
-			Shelter1.printShelterInfo()
+			if varPickUpDog == 1 {
+				clearConsole()
 
-		} else if varInput != 1 {
-			clearConsole()
-			println("функционал повторного просмотра в разработке")
+				Shelter1.printShelterInfo()
+
+				break
+
+			}
+
+		}
+		if varChooseNameDog == Dog2.numberInBase {
+			Dog2.printDogInfo()
+
+			println()
+			println()
+			println()
+			println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
+			fmt.Scan(&varPickUpDog)
+
+			if varPickUpDog == 1 {
+				clearConsole()
+				Shelter2.printShelterInfo()
+				break
+
+			}
+		}
+		if varChooseNameDog == Dog3.numberInBase {
+			Dog3.printDogInfo()
+
+			println()
+			println()
+			println()
+			println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
+			fmt.Scan(&varPickUpDog)
+
+			if varPickUpDog == 1 {
+				clearConsole()
+				Shelter1.printShelterInfo()
+				break
+
+			}
 		}
 
-	}
-	if varInput == Dog2.numberInBase {
-		Dog2.printDogInfo()
-
-		println()
-		println()
-		println()
-		println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
-		fmt.Scan(&varInput)
-
-		if varInput == 1 {
-			clearConsole()
-			Shelter2.printShelterInfo()
-
-		} else if varInput != 1 {
-			clearConsole()
-			println("функционал повторного просмотра в разработке")
-		}
-	}
-
-	if varInput == Dog3.numberInBase {
-		Dog3.printDogInfo()
-
-		println()
-		println()
-		println()
-		println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
-		fmt.Scan(&varInput)
-
-		if varInput == 1 {
-			clearConsole()
-			Shelter1.printShelterInfo()
-
-		} else if varInput != 1 {
-			clearConsole()
-			println("функционал повторного просмотра в разработке")
-		}
 	}
 
 }
