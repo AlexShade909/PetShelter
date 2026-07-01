@@ -88,18 +88,6 @@ func main() {
 		checkInDate:    "25.11.2022",
 		stayShelerName: sliceShelter[1],
 	})
-	// fmt.Println(sliceDog[0].numberInBase)
-	// fmt.Println(sliceDog[0].nickname)
-	// fmt.Println(sliceDog[0].age)
-	// fmt.Println(sliceDog[0].weightKg)
-	// fmt.Println(sliceDog[0].checkInDate)
-	// fmt.Println(sliceDog[0].stayShelerName.nameShelter)
-	// fmt.Println(sliceShelter[0].address)
-	// fmt.Println(sliceShelter[0].contactNumber)
-	// fmt.Println(sliceShelter[0].nameShelter)
-	// fmt.Println(sliceShelter[0].workingTime)
-	// sliceDog[0].printDogInfo()
-	// sliceShelter[0].printShelterInfo()
 	varChooseNameDog := 0
 	varPickUpDog := 0
 
