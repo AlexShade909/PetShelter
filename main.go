@@ -18,7 +18,6 @@ type Shelter struct {
 }
 
 type Dog struct {
-	numberInBase   int
 	nickname       string
 	age            int
 	weightKg       int
@@ -29,7 +28,6 @@ type Dog struct {
 func (d Dog) printDogInfo() {
 
 	fmt.Println("Кличка:", d.nickname)
-	fmt.Println("Номер в базе:", d.numberInBase)
 	fmt.Println("Возраст, лет:", d.age)
 	fmt.Println("Вес, кг:", d.weightKg)
 	fmt.Println("Когда попал в приют:", d.checkInDate)
@@ -64,7 +62,6 @@ func main() {
 	})
 
 	sliceDog = append(sliceDog, Dog{
-		numberInBase:   1,
 		nickname:       "Чарли",
 		age:            3,
 		weightKg:       7,
@@ -73,7 +70,6 @@ func main() {
 	})
 
 	sliceDog = append(sliceDog, Dog{
-		numberInBase:   2,
 		nickname:       "Вил",
 		age:            4,
 		weightKg:       17,
@@ -81,7 +77,6 @@ func main() {
 		stayShelerName: sliceShelter[1],
 	})
 	sliceDog = append(sliceDog, Dog{
-		numberInBase:   3,
 		nickname:       "Кайман",
 		age:            2,
 		weightKg:       3,
@@ -95,9 +90,11 @@ func main() {
 		clearConsole()
 
 		fmt.Println("Собаки, которых вы могли бы забрать из приюта\nЧтобы узнать больше о питомце введите его номер")
-		fmt.Println(sliceDog[0].numberInBase, sliceDog[0].nickname)
-		fmt.Println(sliceDog[1].numberInBase, sliceDog[1].nickname)
-		fmt.Println(sliceDog[2].numberInBase, sliceDog[2].nickname)
+
+		for index, value := range sliceDog {
+			fmt.Println(index+1, value.nickname)
+
+		}
 
 		println("Введите номер собаки, о которой хотите узнать больше:\n")
 		fmt.Scan(&varChooseNameDog)
