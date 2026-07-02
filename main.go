@@ -35,11 +35,44 @@ func (d Dog) printDogInfo() {
 
 }
 
-func (d Shelter) printShelterInfo() {
-	fmt.Println(d.nameShelter)
-	fmt.Println(d.address)
-	fmt.Println(d.contactNumber)
-	fmt.Println(d.workingTime)
+func (s Shelter) printShelterInfo() {
+	fmt.Println(s.nameShelter)
+	fmt.Println(s.address)
+	fmt.Println(s.contactNumber)
+	fmt.Println(s.workingTime)
+}
+
+func inputChooseNameDog(lenSliceDog int) (intChooseNameDog int) {
+	for {
+		_, err := fmt.Scan(&intChooseNameDog)
+		if err != nil {
+			fmt.Println("Ошибка ввода")
+			continue
+		}
+		if intChooseNameDog > 0 && intChooseNameDog <= lenSliceDog {
+			break
+		} else {
+			fmt.Println("Ошибка диапазона")
+		}
+
+	}
+	return intChooseNameDog
+}
+
+func inputPickUpDog() (intPickUpDog int) {
+	for {
+		_, err := fmt.Scan(&intPickUpDog)
+		if err != nil {
+			fmt.Println("Ошибка ввода")
+			continue
+		}
+		if intPickUpDog != 1 && intPickUpDog != 2 {
+			fmt.Println("Ошибка диапазона")
+		} else {
+			break
+		}
+	}
+	return intPickUpDog
 }
 
 func main() {
@@ -53,7 +86,6 @@ func main() {
 		contactNumber: "+375 29 511-22-13",
 		workingTime:   "10:00 - 22:00",
 	})
-
 	sliceShelter = append(sliceShelter, Shelter{
 		nameShelter:   "Приют 'Привет'",
 		address:       "Мстислава Чудотворца 4/1",
@@ -68,7 +100,6 @@ func main() {
 		checkInDate:    "05.02.2025",
 		stayShelerName: sliceShelter[0],
 	})
-
 	sliceDog = append(sliceDog, Dog{
 		nickname:       "Вил",
 		age:            4,
@@ -83,40 +114,33 @@ func main() {
 		checkInDate:    "25.11.2022",
 		stayShelerName: sliceShelter[1],
 	})
-	varChooseNameDog := 0
-	varPickUpDog := 0
+	intChooseNameDog := 0
+	intPickUpDog := 0
 
 	for {
 		clearConsole()
-
 		fmt.Println("Собаки, которых вы могли бы забрать из приюта\nЧтобы узнать больше о питомце введите его номер")
-
 		for index, value := range sliceDog {
 			fmt.Println(index+1, value.nickname)
 
 		}
 
 		println("Введите номер собаки, о которой хотите узнать больше:\n")
-		fmt.Scan(&varChooseNameDog)
-		varChooseNameDog = varChooseNameDog - 1
+		intChooseNameDog = inputChooseNameDog((len(sliceDog))) - 1
 		clearConsole()
 
-		sliceDog[varChooseNameDog].printDogInfo()
-
+		sliceDog[intChooseNameDog].printDogInfo()
 		fmt.Println()
 		fmt.Println()
 		fmt.Println()
 		fmt.Println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
-		fmt.Scan(&varPickUpDog)
-
-		if varPickUpDog == 1 {
+		intPickUpDog = inputPickUpDog()
+		if intPickUpDog == 1 {
 			clearConsole()
-
-			sliceShelter[varChooseNameDog].printShelterInfo()
-
+			sliceDog[intChooseNameDog].stayShelerName.printShelterInfo()
 			break
-
 		}
+
 	}
 
 }
