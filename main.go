@@ -9,6 +9,9 @@ func clearConsole() {
 	println()
 	println()
 }
+func sum12246() {
+
+}
 
 type Shelter struct {
 	nameShelter   string
