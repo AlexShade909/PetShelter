@@ -9,8 +9,9 @@ func clearConsole() {
 	println()
 	println()
 }
-func sum12246() {
-
+func sum12246(a, b int) int {
+	c := a + b
+	return c
 }
 
 type Shelter struct {
