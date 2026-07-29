@@ -10,19 +10,13 @@ func clearConsole() {
 	println()
 }
 
-type Shelter struct {
-	nameShelter   string
-	address       string
-	contactNumber string
-	workingTime   string
-}
-
 type Dog struct {
-	nickname       string
-	age            int
-	weightKg       int
-	checkInDate    string
-	stayShelerName Shelter
+	nickname    string
+	age         int
+	weightKg    float64
+	checkInDate string
+	shelter     Shelter
+	policlinic  Policlinic
 }
 
 func (d Dog) printDogInfo() {
@@ -31,15 +25,31 @@ func (d Dog) printDogInfo() {
 	fmt.Println("Возраст, лет:", d.age)
 	fmt.Println("Вес, кг:", d.weightKg)
 	fmt.Println("Когда попал в приют:", d.checkInDate)
-	fmt.Println("К какому шелтеру относится:", d.stayShelerName.nameShelter)
+	fmt.Println("К какому шелтеру относится:", d.shelter.name)
 
 }
 
+type Shelter struct {
+	name        string
+	address     string
+	number      string
+	workingTime string
+	listPets    map[string]Dog
+}
+
 func (s Shelter) printShelterInfo() {
-	fmt.Println(s.nameShelter)
+	fmt.Println(s.name)
 	fmt.Println(s.address)
-	fmt.Println(s.contactNumber)
+	fmt.Println(s.number)
 	fmt.Println(s.workingTime)
+}
+
+type Policlinic struct {
+	name         string
+	address      string
+	number       string
+	workingTime  string
+	listPatients map[string]Dog
 }
 
 func inputChooseNameDog(lenSliceDog int) (intChooseNameDog int) {
@@ -81,38 +91,38 @@ func main() {
 	var sliceShelter []Shelter
 
 	sliceShelter = append(sliceShelter, Shelter{
-		nameShelter:   "Приют 'Шанс'",
-		address:       "Пятруся Глебки 17",
-		contactNumber: "+375 29 511-22-13",
-		workingTime:   "10:00 - 22:00",
+		name:        "Приют 'Шанс'",
+		address:     "Пятруся Глебки 17",
+		number:      "+375 29 511-22-13",
+		workingTime: "10:00 - 22:00",
 	})
 	sliceShelter = append(sliceShelter, Shelter{
-		nameShelter:   "Приют 'Привет'",
-		address:       "Мстислава Чудотворца 4/1",
-		contactNumber: "+375 12 544-65-45",
-		workingTime:   "11:00 - 21:15",
+		name:        "Приют 'Привет'",
+		address:     "Мстислава Чудотворца 4/1",
+		number:      "+375 12 544-65-45",
+		workingTime: "11:00 - 21:15",
 	})
 
 	sliceDog = append(sliceDog, Dog{
-		nickname:       "Чарли",
-		age:            3,
-		weightKg:       7,
-		checkInDate:    "05.02.2025",
-		stayShelerName: sliceShelter[0],
+		nickname:    "Чарли",
+		age:         3,
+		weightKg:    7.1,
+		checkInDate: "05.02.2025",
+		shelter:     sliceShelter[0],
 	})
 	sliceDog = append(sliceDog, Dog{
-		nickname:       "Вил",
-		age:            4,
-		weightKg:       17,
-		checkInDate:    "15.03.2025",
-		stayShelerName: sliceShelter[1],
+		nickname:    "Вил",
+		age:         4,
+		weightKg:    17,
+		checkInDate: "15.03.2025",
+		shelter:     sliceShelter[1],
 	})
 	sliceDog = append(sliceDog, Dog{
-		nickname:       "Кайман",
-		age:            2,
-		weightKg:       3,
-		checkInDate:    "25.11.2022",
-		stayShelerName: sliceShelter[1],
+		nickname:    "Кайман",
+		age:         2,
+		weightKg:    3,
+		checkInDate: "25.11.2022",
+		shelter:     sliceShelter[1],
 	})
 	intChooseNameDog := 0
 	intPickUpDog := 0
@@ -137,7 +147,7 @@ func main() {
 		intPickUpDog = inputPickUpDog()
 		if intPickUpDog == 1 {
 			clearConsole()
-			sliceDog[intChooseNameDog].stayShelerName.printShelterInfo()
+			sliceDog[intChooseNameDog].shelter.printShelterInfo()
 			break
 		}
 
