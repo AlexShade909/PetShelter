@@ -32,7 +32,7 @@ type Shelter struct {
 	address       string
 	number        string
 	workingTime   string
-	listPets      []*Dog
+	listPets      map[string]*Dog
 }
 
 //func (s Shelter) printShelterInfo() {
@@ -47,7 +47,7 @@ type Policlinic struct {
 	address      string
 	phoneNumber  string
 	workingTime  string
-	listPatients []*Dog
+	listPatients map[string]*Dog
 }
 
 //func inputChooseNameDog(lenSliceDog int) (intChooseNameDog int) {
@@ -89,14 +89,9 @@ func main() {
 	shelters := CreateShelters()
 	dogs := CreateDogs(shelters, policlinics)
 
-	fmt.Println(policlinics[0])
-	fmt.Println(shelters)
-	fmt.Println(dogs)
-	fmt.Println()
-	fmt.Println()
-	fmt.Println()
-	fmt.Println()
-	fmt.Println(*policlinics[1].listPatients[0])
+	//fmt.Println(policlinics)
+	//fmt.Println(shelters)
+	fmt.Println(dogs["Вил"].policlinic.address)
 
 	//for {
 	//	clearConsole()
