@@ -8,15 +8,6 @@ import "fmt"
 //	println()
 //}
 
-type Dog struct {
-	nickname    string
-	age         int
-	weightKg    float64
-	checkInDate string
-	shelter     *Shelter
-	policlinic  *Policlinic
-}
-
 //func (d Dog) printDogInfo() {
 //
 //	fmt.Println("Кличка:", d.nickname)
@@ -27,28 +18,12 @@ type Dog struct {
 //
 //}
 
-type Shelter struct {
-	numberShelter int
-	address       string
-	number        string
-	workingTime   string
-	listPets      map[string]*Dog
-}
-
 //func (s Shelter) printShelterInfo() {
 //	fmt.Println(s.name)
 //	fmt.Println(s.address)
 //	fmt.Println(s.phoneNumber)
 //	fmt.Println(s.workingTime)
 //}
-
-type Policlinic struct {
-	numberClinic int
-	address      string
-	phoneNumber  string
-	workingTime  string
-	listPatients map[string]*Dog
-}
 
 //func inputChooseNameDog(lenSliceDog int) (intChooseNameDog int) {
 //	for {
@@ -90,8 +65,9 @@ func main() {
 	dogs := CreateDogs(shelters, policlinics)
 
 	//fmt.Println(policlinics)
-	//fmt.Println(shelters)
-	fmt.Println(dogs["Вил"].policlinic.address)
+	fmt.Println(len(dogs))
+	fmt.Println(len(policlinics))
+	fmt.Println(len(shelters))
 
 	//for {
 	//	clearConsole()

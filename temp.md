@@ -51,3 +51,13 @@ number       string
 workingTime  string
 listPatients []
 }
+
+
+project/
+├── main.go        — точка входа, только запуск программы
+├── models.go       — структуры Dog, Shelter, Policlinic
+├── data.go         — CreatePoliclinics, CreateShelters, CreateDogs (начальные данные)
+├── service.go      — AddDog, RemoveDog, FindDog (бизнес-логика над данными)
+├── input.go        — примитивы консольного ввода (readMenuChoice, readNonEmptyString и т.д.)
+├── output.go       — функции вывода (printDogInfo, printShelterInfo, printDogList)
+└── scenarios.go     — сценарии (scenarioAddDog, scenarioTakeDog) + runMenu
