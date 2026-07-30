@@ -69,6 +69,17 @@ func main() {
 	fmt.Println(len(policlinics))
 	fmt.Println(len(shelters))
 
+	RemoveDog(dogs, "Вил")
+	fmt.Println(len(dogs))
+	fmt.Println(dogs)
+	RemoveDog(dogs, "Кайман")
+
+	fmt.Println(len(dogs))
+	fmt.Println(dogs)
+
+	AddDog(dogs, "Бобби", 5, 1.2, "05.07.2000", &shelters[0], &policlinics[1])
+
+	fmt.Println(dogs["Бобби"])
 	//for {
 	//	clearConsole()
 	//	fmt.Println("Собаки, которых вы могли бы забрать из приюта\nЧтобы узнать больше о питомце введите его номер")
@@ -94,5 +105,8 @@ func main() {
 	//	}
 	//
 	//}
+	x, y := FindDog(dogs, "Бобби")
+	fmt.Println()
+	fmt.Println(x, y)
 
 }

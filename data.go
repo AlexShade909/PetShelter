@@ -9,7 +9,7 @@ func CreatePoliclinics() []Policlinic {
 			workingTime:  "10:00-23:00",
 			listPatients: make(map[string]*Dog),
 		}, {
-			numberClinic: 12,
+			numberClinic: 2,
 			address:      "Ленина 133",
 			phoneNumber:  "+37529-644-55-71",
 			workingTime:  "09:00-24:00",

@@ -28,3 +28,8 @@ func RemoveDog(dogs map[string]*Dog, nickname string) bool {
 
 	return true
 }
+
+func FindDog(dogs map[string]*Dog, nickname string) (*Dog, bool) {
+	d, ok := dogs[nickname]
+	return d, ok
+}
