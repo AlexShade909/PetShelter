@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //func clearConsole() {
 //	fmt.Print("\033[H\033[2J")
 //	println()
@@ -53,4 +55,13 @@ func main() {
 	dogs := CreateDogs(shelters, policlinics)
 
 	printDogInfo(dogs, "Вил")
+	fmt.Println()
+	fmt.Println()
+	fmt.Println()
+	printShelterInfo(&shelters[1])
+	fmt.Println()
+	fmt.Println()
+	fmt.Println()
+	printDogList(dogs)
+
 }
