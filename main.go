@@ -1,21 +1,9 @@
 package main
 
-import "fmt"
-
 //func clearConsole() {
 //	fmt.Print("\033[H\033[2J")
 //	println()
 //	println()
-//}
-
-//func (d Dog) printDogInfo() {
-//
-//	fmt.Println("Кличка:", d.nickname)
-//	fmt.Println("Возраст, лет:", d.age)
-//	fmt.Println("Вес, кг:", d.weightKg)
-//	fmt.Println("Когда попал в приют:", d.checkInDate)
-//	fmt.Println("К какому шелтеру относится:", d.shelter.name)
-//
 //}
 
 //func (s Shelter) printShelterInfo() {
@@ -64,49 +52,5 @@ func main() {
 	shelters := CreateShelters()
 	dogs := CreateDogs(shelters, policlinics)
 
-	//fmt.Println(policlinics)
-	fmt.Println(len(dogs))
-	fmt.Println(len(policlinics))
-	fmt.Println(len(shelters))
-
-	RemoveDog(dogs, "Вил")
-	fmt.Println(len(dogs))
-	fmt.Println(dogs)
-	RemoveDog(dogs, "Кайман")
-
-	fmt.Println(len(dogs))
-	fmt.Println(dogs)
-
-	AddDog(dogs, "Бобби", 5, 1.2, "05.07.2000", &shelters[0], &policlinics[1])
-
-	fmt.Println(dogs["Бобби"])
-	//for {
-	//	clearConsole()
-	//	fmt.Println("Собаки, которых вы могли бы забрать из приюта\nЧтобы узнать больше о питомце введите его номер")
-	//	for index, value := range dogs {
-	//		fmt.Println(index+1, value.nickname)
-	//
-	//	}
-	//
-	//	println("Введите номер собаки, о которой хотите узнать больше:\n")
-	//	intChooseNameDog = inputChooseNameDog((len(dogs))) - 1
-	//	clearConsole()
-	//
-	//	dogs[intChooseNameDog].printDogInfo()
-	//	fmt.Println()
-	//	fmt.Println()
-	//	fmt.Println()
-	//	fmt.Println("Забрать из приюта?\n1 Да, забрать из приюта\n2 Нет, смотреть других собак")
-	//	intPickUpDog = inputPickUpDog()
-	//	if intPickUpDog == 1 {
-	//		clearConsole()
-	//		dogs[intChooseNameDog].shelter.printShelterInfo()
-	//		break
-	//	}
-	//
-	//}
-	x, y := FindDog(dogs, "Бобби")
-	fmt.Println()
-	fmt.Println(x, y)
-
+	printDogInfo(dogs, "Вил")
 }
