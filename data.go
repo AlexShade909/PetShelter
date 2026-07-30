@@ -3,15 +3,15 @@ package main
 func CreatePoliclinics() []Policlinic {
 	policlinics := []Policlinic{
 		{
-			name:         "Zoo-clinic-1",
+			numberClinic: 1,
 			address:      "Mira 1",
-			number:       "+37529-566-13-54",
+			phoneNumber:  "+37529-566-13-54",
 			workingTime:  "10:00-23:00",
 			listPatients: []*Dog{},
 		}, {
-			name:         "Zoo-Pomoshch",
+			numberClinic: 12,
 			address:      "Lenina 133",
-			number:       "+37529-644-55-71",
+			phoneNumber:  "+37529-644-55-71",
 			workingTime:  "09:00-24:00",
 			listPatients: []*Dog{},
 		},
@@ -22,17 +22,17 @@ func CreatePoliclinics() []Policlinic {
 func CreateShelters() []Shelter {
 	shelters := []Shelter{
 		{
-			name:        "Приют 'Шанс'",
-			address:     "Пятруся Глебки 17",
-			number:      "+375 29 511-22-13",
-			workingTime: "10:00 - 22:00",
-			listPets:    []*Dog{},
+			numberShelter: 1,
+			address:       "Пятруся Глебки 17",
+			number:        "+375 29 511-22-13",
+			workingTime:   "10:00 - 22:00",
+			listPets:      []*Dog{},
 		}, {
-			name:        "Приют 'Привет'",
-			address:     "Мстислава Чудотворца 4/1",
-			number:      "+375 12 544-65-45",
-			workingTime: "11:00 - 21:15",
-			listPets:    []*Dog{},
+			numberShelter: 2,
+			address:       "Мстислава Чудотворца 4/1",
+			number:        "+375 12 544-65-45",
+			workingTime:   "11:00 - 21:15",
+			listPets:      []*Dog{},
 		},
 	}
 	return shelters
