@@ -28,13 +28,3 @@ func RemoveDog(dogs map[string]*Dog, nickname string) bool {
 
 	return true
 }
-
-func CreateDogs(shelters []Shelter, policlinics []Policlinic) map[string]*Dog {
-	dogs := make(map[string]*Dog)
-
-	AddDog(dogs, "Чарли", 3, 7.1, "05.02.2025", &shelters[0], &policlinics[0])
-	AddDog(dogs, "Вил", 4, 17, "15.03.2025", &shelters[1], &policlinics[1])
-	AddDog(dogs, "Кайман", 2, 3, "25.11.2022", &shelters[1], &policlinics[1])
-
-	return dogs
-}
