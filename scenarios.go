@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // возвращает false, если пользователь решил закончить программу
-func scenarioTakeDog(dogs map[string]*Dog, shelters []Shelter, policlinics []Policlinic) bool {
+func scenarioTakeDog(facade Facade) bool {
 	printDogList(dogs)
 	nickname := readNonEmptyString("Введите кличку собаки: ")
 
@@ -23,7 +23,7 @@ func scenarioTakeDog(dogs map[string]*Dog, shelters []Shelter, policlinics []Pol
 	return readYesNo("Смотреть ещё? (да/нет): ")
 }
 
-func scenarioAddDog(dogs map[string]*Dog, shelters []Shelter, policlinics []Policlinic) bool {
+func scenarioAddDog(facade Facade) bool {
 	// считать nickname/age/weight/checkInDate
 	// дать выбрать приют и поликлинику из списка (readMenuChoice по индексу)
 	// AddDog(...) + печать сообщений на каждом шаге
