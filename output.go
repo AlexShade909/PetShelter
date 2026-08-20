@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 func printDogInfo(dogs map[string]*Dog, nickname string) {
-
 	fmt.Println("Кличка:", nickname)
 	fmt.Println("Возраст, лет:", dogs[nickname].age)
 	fmt.Println("Вес, кг:", dogs[nickname].weightKg)

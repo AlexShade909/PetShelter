@@ -9,7 +9,6 @@ func AddDog(dogs map[string]*Dog, nickname string, age int, weightKg float64, ch
 		shelter:     shelter,
 		policlinic:  policlinic,
 	}
-
 	dogs[nickname] = d
 	shelter.listPets[nickname] = d
 	policlinic.listPatients[nickname] = d
@@ -21,11 +20,9 @@ func RemoveDog(dogs map[string]*Dog, nickname string) bool {
 	if !ok {
 		return false
 	}
-
 	delete(d.shelter.listPets, nickname)
 	delete(d.policlinic.listPatients, nickname)
 	delete(dogs, nickname)
-
 	return true
 }
 

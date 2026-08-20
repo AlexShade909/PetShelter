@@ -20,19 +20,16 @@ func readMenuChoice(prompt string, min, max int) int {
 			fmt.Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
-
 		line = strings.TrimSpace(line)
 		choice, err := strconv.Atoi(line)
 		if err != nil {
 			fmt.Println("Введите целое число")
 			continue
 		}
-
 		if choice < min || choice > max {
 			fmt.Printf("Число должно быть от %d до %d\n", min, max)
 			continue
 		}
-
 		return choice
 	}
 }
@@ -47,13 +44,11 @@ func readNonEmptyString(prompt string) string {
 			fmt.Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
-
 		line = strings.TrimSpace(line)
 		if line == "" {
 			fmt.Println("Строка не может быть пустой")
 			continue
 		}
-
 		return line
 	}
 }
@@ -67,16 +62,13 @@ func readFloat(prompt string) float64 {
 			fmt.Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
-
 		line = strings.TrimSpace(line)
 		line = strings.ReplaceAll(line, ",", ".") // на случай ввода "7,1" вместо "7.1"
-
 		value, err := strconv.ParseFloat(line, 64)
 		if err != nil {
 			fmt.Println("Введите число, например 7.1")
 			continue
 		}
-
 		return value
 	}
 }
@@ -90,14 +82,12 @@ func readInt(prompt string) int {
 			fmt.Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
-
 		line = strings.TrimSpace(line)
 		value, err := strconv.Atoi(line)
 		if err != nil {
 			fmt.Println("Введите целое число")
 			continue
 		}
-
 		return value
 	}
 }
@@ -112,9 +102,7 @@ func readYesNo(prompt string) bool {
 			fmt.Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
-
 		line = strings.ToLower(strings.TrimSpace(line))
-
 		switch line {
 		case "да", "д", "y", "yes":
 			return true
@@ -124,5 +112,4 @@ func readYesNo(prompt string) bool {
 			fmt.Println("Введите 'да' или 'нет'")
 		}
 	}
-
 }
