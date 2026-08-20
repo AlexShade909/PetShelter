@@ -5,8 +5,6 @@ type Dog struct {
 	age         int
 	weightKg    float64
 	checkInDate string
-	shelter     *Shelter
-	policlinic  *Policlinic
 }
 
 type Shelter struct {
@@ -17,10 +15,22 @@ type Shelter struct {
 	listPets      map[string]*Dog
 }
 
+func (s *Shelter) AddDogs(dog ...Dog) {
+}
+
+func (s *Shelter) RemoveDogs(dog ...Dog) {
+}
+
 type Policlinic struct {
 	numberClinic int
 	address      string
 	phoneNumber  string
 	workingTime  string
 	listPatients map[string]*Dog
+}
+
+func (p *Policlinic) AddDogs(dog ...Dog) {
+}
+
+func (p *Policlinic) RemoveDogs(dog ...Dog) {
 }
