@@ -3,31 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	policlinicsStorage := PoliclinicsStorage{
-		table: make(map[string]Policlinic),
-	}
-	policlinicsStorage.Add(CreatePoliclinics()...)
-
-	sheltersStorage := SheltersStorage{
-		table: make(map[string]Shelter),
-	}
-	sheltersStorage.Add(CreateShelters()...)
-
-	policlinnic1 := policlinicsStorage.Find("Поликлиника 1")
-	policlinnic2 := policlinicsStorage.Find("Поликлиника 2")
-	shelter1 := sheltersStorage.Find("Шелтер 1")
-	shelter2 := sheltersStorage.Find("Шелтер 2")
-
-	fmt.Println(policlinnic1)
-	fmt.Println(policlinnic2)
-	fmt.Println(shelter1)
-	fmt.Println(shelter2)
-	fmt.Println()
-	fmt.Println()
-
-	dogs := CreateDogs()
+	shelters := CreateShelters()
+	policlinics := CreatePoliclinics()
+	dogs := CreateDogs(shelters, policlinics)
 	fmt.Println(dogs)
-	fmt.Println()
 	/*
 		facadeStorage := FacadeStorage{
 			PoliclinicsStorage: policlinicsStorage,
