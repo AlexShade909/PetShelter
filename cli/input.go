@@ -1,4 +1,4 @@
-package main
+package cli
 
 import (
 	"bufio"
@@ -10,7 +10,7 @@ import (
 
 var reader = bufio.NewReader(os.Stdin)
 
-func readMenuChoice(prompt string, min, max int) int {
+func ReadMenuChoice(prompt string, min, max int) int {
 	for {
 		fmt.Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -32,7 +32,7 @@ func readMenuChoice(prompt string, min, max int) int {
 	}
 }
 
-func readNonEmptyString(prompt string) string {
+func ReadNonEmptyString(prompt string) string {
 	for {
 		fmt.Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -49,7 +49,7 @@ func readNonEmptyString(prompt string) string {
 	}
 }
 
-func readFloat(prompt string) float64 {
+func ReadFloat(prompt string) float64 {
 	for {
 		fmt.Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -68,7 +68,7 @@ func readFloat(prompt string) float64 {
 	}
 }
 
-func readInt(prompt string) int {
+func ReadInt(prompt string) int {
 	for {
 		fmt.Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -86,7 +86,7 @@ func readInt(prompt string) int {
 	}
 }
 
-func readYesNo(prompt string) bool {
+func ReadYesNo(prompt string) bool {
 	for {
 		fmt.Print(prompt)
 		line, err := reader.ReadString('\n')

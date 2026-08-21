@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"PetShelter/cli"
+)
 
 func main() {
 	shelters := CreateShelters()
@@ -10,7 +14,7 @@ func main() {
 	flag := true
 
 	for flag {
-		choice := readMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
+		choice := cli.ReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
 		switch choice {
 		case 1:
 			fmt.Println("Выбрать собаку, я пользователь")
@@ -23,5 +27,4 @@ func main() {
 			return
 		}
 	}
-
 }

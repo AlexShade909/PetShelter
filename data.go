@@ -35,6 +35,7 @@ func CreateShelters() []Shelter {
 	}
 	return shelters
 }
+
 func CreateDogs(shelter []Shelter, policlinic []Policlinic) map[string]Dog {
 	dogs := map[string]Dog{
 		"Чарли": {
