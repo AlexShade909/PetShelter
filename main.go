@@ -23,8 +23,9 @@ func (p *PoliclinicsStorage) Add(policlinics ...Policlinic) {
 	}
 }
 
-//func (p *PoliclinicsStorage) Remove(policlinics Policlinic) {
-//}
+func (p *PoliclinicsStorage) Remove(key string) {
+	delete(p.table, key)
+}
 
 //type SheltersStorage struct {
 //	table map[string]Shelter
@@ -47,8 +48,11 @@ type Facade struct {
 func main() {
 	policlinicsStorage := PoliclinicsStorage{}
 	policlinicsStorage.Add(CreatePoliclinics()...)
-	a := policlinicsStorage.Find(1)
-	fmt.Println(a)
+
+	fmt.Println(policlinicsStorage.Find("1"))
+	policlinicsStorage.Remove("123")
+	fmt.Println(policlinicsStorage.Find("1"))
+
 	/*
 			sheltersStorage := SheltersStorage{}
 			sheltersStorage.Add(CreateShelters()...)
