@@ -2,11 +2,17 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"PetShelter/cli"
+	"PetShelter/net"
 )
 
 func main() {
+	if err := net.Connect(); err != nil {
+		log.Fatalln(err.Error())
+	}
+
 	shelters := CreateShelters()
 	policlinics := CreatePoliclinics()
 	dogs := CreateDogs(shelters, policlinics)
