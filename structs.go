@@ -8,7 +8,7 @@ type Dog struct {
 }
 
 type Shelter struct {
-	numberShelter int
+	numberShelter string
 	address       string
 	number        string
 	workingTime   string
@@ -22,7 +22,7 @@ func (s *Shelter) RemoveDogs(dog ...Dog) {
 }
 
 type Policlinic struct {
-	numberClinic int
+	numberClinic string
 	address      string
 	phoneNumber  string
 	workingTime  string
