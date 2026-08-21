@@ -10,8 +10,6 @@ import (
 
 var reader = bufio.NewReader(os.Stdin)
 
-// readMenuChoice запрашивает целое число в диапазоне [min, max] включительно.
-// Используется и для "1. Забрать / 2. Добавить", и для выбора приюта/поликлиники по номеру.
 func readMenuChoice(prompt string, min, max int) int {
 	for {
 		fmt.Print(prompt)
@@ -34,8 +32,6 @@ func readMenuChoice(prompt string, min, max int) int {
 	}
 }
 
-// readNonEmptyString запрашивает строку и не даёт продолжить, пока она пустая.
-// Используется для клички, даты поступления и т.п.
 func readNonEmptyString(prompt string) string {
 	for {
 		fmt.Print(prompt)
@@ -53,7 +49,6 @@ func readNonEmptyString(prompt string) string {
 	}
 }
 
-// readFloat запрашивает дробное число (например, вес собаки).
 func readFloat(prompt string) float64 {
 	for {
 		fmt.Print(prompt)
@@ -73,7 +68,6 @@ func readFloat(prompt string) float64 {
 	}
 }
 
-// readInt запрашивает целое число без верхней/нижней границы (например, возраст).
 func readInt(prompt string) int {
 	for {
 		fmt.Print(prompt)
@@ -92,8 +86,6 @@ func readInt(prompt string) int {
 	}
 }
 
-// readYesNo запрашивает подтверждение да/нет.
-// Принимает "да"/"нет", а также короткие "д"/"н" и латиницу "y"/"n" для удобства.
 func readYesNo(prompt string) bool {
 	for {
 		fmt.Print(prompt)

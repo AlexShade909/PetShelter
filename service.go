@@ -1,6 +1,6 @@
 package main
 
-func AddDog(dogs map[string]*Dog, nickname string, age int, weightKg float64, checkInDate string, shelter *Shelter, policlinic *Policlinic) *Dog {
+func AddDog(dogs map[string]Dog, nickname string, age int, weightKg float64, checkInDate string, shelter *Shelter, policlinic *Policlinic) *Dog {
 	d := &Dog{
 		nickname:    nickname,
 		age:         age,
@@ -9,24 +9,20 @@ func AddDog(dogs map[string]*Dog, nickname string, age int, weightKg float64, ch
 		shelter:     shelter,
 		policlinic:  policlinic,
 	}
-	dogs[nickname] = d
-	shelter.listPets[nickname] = d
-	policlinic.listPatients[nickname] = d
+	dogs[nickname] = *d
 	return d
 }
 
-func RemoveDog(dogs map[string]*Dog, nickname string) bool {
-	d, ok := dogs[nickname]
+func RemoveDog(dogs map[string]Dog, nickname string) bool {
+	_, ok := dogs[nickname]
 	if !ok {
 		return false
 	}
-	delete(d.shelter.listPets, nickname)
-	delete(d.policlinic.listPatients, nickname)
 	delete(dogs, nickname)
 	return true
 }
 
-func FindDog(dogs map[string]*Dog, nickname string) (*Dog, bool) {
+func FindDog(dogs map[string]Dog, nickname string) (Dog, bool) {
 	d, ok := dogs[nickname]
 	return d, ok
 }
