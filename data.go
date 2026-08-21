@@ -3,14 +3,14 @@ package main
 func CreatePoliclinics() []Policlinic {
 	policlinics := []Policlinic{
 		{
-			numberClinic: 1,
+			numberClinic: "1",
 			address:      "Мира 1",
 			phoneNumber:  "+37529-566-13-54",
 			workingTime:  "10:00-23:00",
 			listPatients: make(map[string]*Dog),
 		},
 		{
-			numberClinic: 2,
+			numberClinic: "2",
 			address:      "Ленина 133",
 			phoneNumber:  "+37529-644-55-71",
 			workingTime:  "09:00-24:00",
@@ -23,14 +23,14 @@ func CreatePoliclinics() []Policlinic {
 func CreateShelters() []Shelter {
 	shelters := []Shelter{
 		{
-			numberShelter: 1,
+			numberShelter: "1",
 			address:       "Пятруся Глебки 17",
 			number:        "+375 29 511-22-13",
 			workingTime:   "10:00 - 22:00",
 			listPets:      make(map[string]*Dog),
 		},
 		{
-			numberShelter: 2,
+			numberShelter: "2",
 			address:       "Мстислава Чудотворца 4/1",
 			number:        "+375 12 544-65-45",
 			workingTime:   "11:00 - 21:15",
@@ -40,7 +40,7 @@ func CreateShelters() []Shelter {
 	return shelters
 }
 
-func CreateDogsV2() []Dog {
+func CreateDogs() []Dog {
 	dogs := []Dog{
 		{
 			nickname:    "Чарли",
@@ -61,6 +61,5 @@ func CreateDogsV2() []Dog {
 			checkInDate: "05.07.2025",
 		},
 	}
-
 	return dogs
 }
