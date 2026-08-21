@@ -21,7 +21,8 @@ func (s *Shelter) AddDogs(dog ...Dog) {
 	}
 }
 
-func (s *Shelter) RemoveDogs(dog ...Dog) {
+func (s *Shelter) RemoveDogs(nickname string) {
+	delete(s.listPets, nickname)
 }
 
 type Policlinic struct {
@@ -38,5 +39,6 @@ func (p *Policlinic) AddDogs(dog ...Dog) {
 	}
 }
 
-func (p *Policlinic) RemoveDogs(dog ...Dog) {
+func (p *Policlinic) RemoveDogs(nickname string) {
+	delete(p.listPatients, nickname)
 }
