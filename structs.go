@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Dog struct {
 	nickname    string
 	age         int
@@ -7,6 +9,15 @@ type Dog struct {
 	checkInDate string
 	shelter     *Shelter
 	policlinic  *Policlinic
+}
+
+func (d *Dog) Print() {
+	fmt.Println("Кличка:", d.nickname)
+	fmt.Println("Возраст, лет:", d.age)
+	fmt.Println("Вес, кг:", d.weightKg)
+	fmt.Println("Когда попал в приют:", d.checkInDate)
+	fmt.Println("К какому шелтеру относится:", d.shelter.address)
+	fmt.Println("К какой поликлинике относится:", d.policlinic.address)
 }
 
 type Shelter struct {
