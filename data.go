@@ -50,9 +50,9 @@ func CreateDogs() []Dog {
 		},
 		{
 			nickname:    "Спайси",
-			age:         613,
-			weightKg:    135,
-			checkInDate: "15.02.2025",
+			age:         13,
+			weightKg:    15,
+			checkInDate: "15.12.2025",
 		},
 		{
 			nickname:    "Кайман",
