@@ -16,6 +16,9 @@ type Shelter struct {
 }
 
 func (s *Shelter) AddDogs(dog ...Dog) {
+	for _, d := range dog {
+		s.listPets[d.nickname] = &d
+	}
 }
 
 func (s *Shelter) RemoveDogs(dog ...Dog) {
@@ -30,6 +33,9 @@ type Policlinic struct {
 }
 
 func (p *Policlinic) AddDogs(dog ...Dog) {
+	for _, d := range dog {
+		p.listPatients[d.nickname] = &d
+	}
 }
 
 func (p *Policlinic) RemoveDogs(dog ...Dog) {
