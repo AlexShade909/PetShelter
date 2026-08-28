@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
-	"log"
-
-	"PetShelter/cli"
-	"PetShelter/net"
+	//"log"
+	//"PetShelter/cli"
+	//"PetShelter/net"
 )
 
 func main() {
-	if err := net.Connect(); err != nil {
-		log.Fatalln(err.Error())
-	}
+	//if err := net.Connect(); err != nil {
+	//	log.Fatalln(err.Error())
+	//}
 
 	shelters := CreateShelters()
 	policlinics := CreatePoliclinics()
@@ -20,7 +19,7 @@ func main() {
 	flag := true
 
 	for flag {
-		choice := cli.ReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
+		choice := ReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
 		switch choice {
 		case 1:
 			fmt.Println("Выбрать собаку, я пользователь")
