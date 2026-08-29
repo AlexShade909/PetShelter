@@ -19,7 +19,7 @@ func CreatePoliclinics() []Policlinic {
 }
 
 func CreateShelters() []Shelter {
-	shelters := []Shelter{
+	Shelters := []Shelter{
 		{
 			numberShelter: "Шелтер 0",
 			address:       "Пятруся Глебки 17",
@@ -33,7 +33,7 @@ func CreateShelters() []Shelter {
 			workingTime:   "11:00 - 21:15",
 		},
 	}
-	return shelters
+	return Shelters
 }
 
 func CreateDogs(shelter []Shelter, policlinic []Policlinic) map[string]Dog {

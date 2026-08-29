@@ -1,31 +1,29 @@
 package main
 
 import (
+	"PetShelter/cli"
 	"fmt"
-	//"log"
-	//"PetShelter/cli"
-	//"PetShelter/net"
 )
 
 func main() {
 	//if err := net.Connect(); err != nil {
 	//	log.Fatalln(err.Error())
 	//
-	shelters := CreateShelters()
-	policlinics := CreatePoliclinics()
-	dogs := CreateDogs(shelters, policlinics)
+	Shelters := CreateShelters()
+	Policlinics := CreatePoliclinics()
+	Dogs := CreateDogs(Shelters, Policlinics)
 
 	flag := true
 
 	for flag {
-		choice := ReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
+		choice := cli.ReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
 		switch choice {
 		case 1:
 			fmt.Println("Выбрать собаку, я пользователь")
-			flag = scenarioTakeDog(dogs)
+			flag = scenarioTakeDog(Dogs)
 		case 2:
 			fmt.Println("Добавить собаку, я администратор")
-			flag = scenarioAddDog(dogs, shelters, policlinics)
+			flag = scenarioAddDog(Dogs, Shelters, Policlinics)
 		case 3:
 			fmt.Println("Выход")
 			return
