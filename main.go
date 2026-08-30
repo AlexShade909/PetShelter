@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-	//if err := net.Connect(); err != nil {
+	//if err := network.Connect(); err != nil {
 	//	log.Fatalln(err.Error())
-	//
+	//}
+
 	Shelters := internal.CreateShelters()
 	Policlinics := internal.CreatePoliclinics()
 	Dogs := internal.CreateDogs(Shelters, Policlinics)

@@ -7,34 +7,28 @@ import (
 )
 
 func Connect() error {
-	fmt.Println("Запускаем сервер")
-
-	listener, err := net.Listen("tcp", "localhost:8080")
+	fmt.Println("Start server")
+	listener, err := net.Listen("tcp", ":8080")
 	if err != nil {
-		fmt.Println("Ошибка подключения:", err)
+		fmt.Println("Error connection", err)
 		return err
 	}
 	defer listener.Close()
-
-	fmt.Println("Ждем соединение")
-
+	fmt.Println("Wait connection client...")
 	conn, err := listener.Accept()
 	if err != nil {
-		fmt.Println("Ошибка подключения клиента:", err)
+		fmt.Println("Error connection client", err)
 		return err
 	}
-
-	fmt.Println("Соединение получили - слушаем данные")
-
+	defer conn.Close()
+	fmt.Println("Connection success. Listen more...")
 	for {
 		message, err := bufio.NewReader(conn).ReadString('\n')
 		if err != nil {
-			fmt.Println("Ошибка чтения:", err)
+			fmt.Println("Error of reading", err)
 			return err
 		}
-
-		fmt.Println(message)
+		fmt.Print(message)
 	}
-
 	return nil
 }
