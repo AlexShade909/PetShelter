@@ -1,13 +1,13 @@
-package main
+package internal
 
 func AddDog(dogs map[string]Dog, nickname string, age int, weightKg float64, checkInDate string, shelter *Shelter, policlinic *Policlinic) *Dog {
 	d := &Dog{
-		nickname:    nickname,
-		age:         age,
-		weightKg:    weightKg,
-		checkInDate: checkInDate,
-		shelter:     shelter,
-		policlinic:  policlinic,
+		Nickname:    nickname,
+		Age:         age,
+		WeightKg:    weightKg,
+		CheckInDate: checkInDate,
+		Shelter:     shelter,
+		Policlinic:  policlinic,
 	}
 	dogs[nickname] = *d
 	return d

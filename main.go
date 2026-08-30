@@ -2,6 +2,7 @@ package main
 
 import (
 	"PetShelter/cli"
+	"PetShelter/internal"
 	"fmt"
 )
 
@@ -9,9 +10,9 @@ func main() {
 	//if err := net.Connect(); err != nil {
 	//	log.Fatalln(err.Error())
 	//
-	Shelters := CreateShelters()
-	Policlinics := CreatePoliclinics()
-	Dogs := CreateDogs(Shelters, Policlinics)
+	Shelters := internal.CreateShelters()
+	Policlinics := internal.CreatePoliclinics()
+	Dogs := internal.CreateDogs(Shelters, Policlinics)
 
 	flag := true
 
@@ -20,10 +21,10 @@ func main() {
 		switch choice {
 		case 1:
 			fmt.Println("Выбрать собаку, я пользователь")
-			flag = scenarioTakeDog(Dogs)
+			flag = cli.ScenarioTakeDog(Dogs)
 		case 2:
 			fmt.Println("Добавить собаку, я администратор")
-			flag = scenarioAddDog(Dogs, Shelters, Policlinics)
+			flag = cli.ScenarioAddDog(Dogs, Shelters, Policlinics)
 		case 3:
 			fmt.Println("Выход")
 			return
