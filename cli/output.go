@@ -2,31 +2,49 @@ package cli
 
 import (
 	"PetShelter/internal"
-	"fmt"
 )
 
 func PrintDogInfo(dogs map[string]internal.Dog, nickname string) {
-	dog := dogs[nickname]
-	dog.Print()
+	d := dogs[nickname]
+	Print("Кличка: ")
+	Println(d.Nickname)
+	Print("Возраст, лет: ")
+	Println(d.Age)
+	Print("Вес, кг: ")
+	Println(d.WeightKg)
+	Print("Когда попал в приют: ")
+	Println(d.CheckInDate)
+	Print("К какому шелтеру относится: ")
+	Println(d.Shelter.Address)
+	Print("К какой поликлинике относится: ")
+	Println(d.Policlinic.Address)
 }
 
 func PrintDogList(dogs map[string]internal.Dog) {
-	fmt.Println("Список собак: ")
+	Println("Список собак: ")
 	for nickname := range dogs {
-		fmt.Println(nickname)
+		Println(nickname)
 	}
 }
 
 func PrintShelterInfo(s *internal.Shelter) {
-	fmt.Println("Приют №:", s.NumberShelter)
-	fmt.Println("Адрес:", s.Address)
-	fmt.Println("Телефон:", s.Number)
-	fmt.Println("Время работы:", s.WorkingTime)
+	Print("Приют №: ")
+	Println(s.NumberShelter)
+	Print("Адрес: ")
+	Println(s.Address)
+	Print("Телефон: ")
+	Println(s.Number)
+	Print("Время работы: ")
+	Println(s.WorkingTime)
 }
 
 func PrintPoliclinicInfo(p *internal.Policlinic) {
-	fmt.Println("Название:", p.NumberClinic)
-	fmt.Println("адрес:", p.Address)
-	fmt.Println("телефон:", p.PhoneNumber)
-	fmt.Println("рабочее время:", p.WorkingTime)
+	Print("Название: ")
+	Println(p.NumberClinic)
+	Print("адрес: ")
+	Println(p.Address)
+	Print("телефон: ")
+	Println(p.PhoneNumber)
+	Print("рабочее время: ")
+	Println(p.WorkingTime)
 }

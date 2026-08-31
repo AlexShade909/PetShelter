@@ -4,8 +4,8 @@ import "fmt"
 
 type Dog struct {
 	Nickname    string
-	Age         int
-	WeightKg    float64
+	Age         string
+	WeightKg    string
 	CheckInDate string
 	Shelter     *Shelter
 	Policlinic  *Policlinic

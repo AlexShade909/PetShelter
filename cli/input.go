@@ -3,29 +3,46 @@ package cli
 import (
 	"bufio"
 	"fmt"
-	"os"
+	"io"
 	"strconv"
 	"strings"
 )
 
-var reader = bufio.NewReader(os.Stdin)
+var reader *bufio.Reader
+var writer io.Writer
+
+func Init(r io.Reader, w io.Writer) {
+	reader = bufio.NewReader(r)
+	writer = w
+}
+
+func Print(s string) {
+	fmt.Fprint(writer, s)
+}
+
+func Println(s string) {
+	fmt.Fprintln(writer, s)
+}
+func Printf(format string, args ...interface{}) {
+	fmt.Fprintf(writer, format, args...)
+}
 
 func ReadMenuChoice(prompt string, min, max int) int {
 	for {
-		fmt.Print(prompt)
+		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("Ошибка чтения ввода, попробуйте снова")
+			Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
 		line = strings.TrimSpace(line)
 		choice, err := strconv.Atoi(line)
 		if err != nil {
-			fmt.Println("Введите целое число")
+			Println("Введите целое число")
 			continue
 		}
 		if choice < min || choice > max {
-			fmt.Printf("Число должно быть от %d до %d\n", min, max)
+			Printf("Число должно быть от %d до %d\n", min, max)
 			continue
 		}
 		return choice
@@ -34,15 +51,15 @@ func ReadMenuChoice(prompt string, min, max int) int {
 
 func ReadNonEmptyString(prompt string) string {
 	for {
-		fmt.Print(prompt)
+		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("Ошибка чтения ввода, попробуйте снова")
+			Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
 		line = strings.TrimSpace(line)
 		if line == "" {
-			fmt.Println("Строка не может быть пустой")
+			Println("Строка не может быть пустой")
 			continue
 		}
 		return line
@@ -51,17 +68,17 @@ func ReadNonEmptyString(prompt string) string {
 
 func ReadFloat(prompt string) float64 {
 	for {
-		fmt.Print(prompt)
+		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("Ошибка чтения ввода, попробуйте снова")
+			Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
 		line = strings.TrimSpace(line)
 		line = strings.ReplaceAll(line, ",", ".") // на случай ввода "7,1" вместо "7.1"
 		value, err := strconv.ParseFloat(line, 64)
 		if err != nil {
-			fmt.Println("Введите число, например 7.1")
+			Println("Введите число, например 7.1")
 			continue
 		}
 		return value
@@ -70,16 +87,16 @@ func ReadFloat(prompt string) float64 {
 
 func ReadInt(prompt string) int {
 	for {
-		fmt.Print(prompt)
+		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("Ошибка чтения ввода, попробуйте снова")
+			Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
 		line = strings.TrimSpace(line)
 		value, err := strconv.Atoi(line)
 		if err != nil {
-			fmt.Println("Введите целое число")
+			Println("Введите целое число")
 			continue
 		}
 		return value
@@ -88,10 +105,10 @@ func ReadInt(prompt string) int {
 
 func ReadYesNo(prompt string) bool {
 	for {
-		fmt.Print(prompt)
+		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Println("Ошибка чтения ввода, попробуйте снова")
+			Println("Ошибка чтения ввода, попробуйте снова")
 			continue
 		}
 		line = strings.ToLower(strings.TrimSpace(line))
@@ -101,7 +118,7 @@ func ReadYesNo(prompt string) bool {
 		case "нет", "н", "n", "no":
 			return false
 		default:
-			fmt.Println("Введите 'да' или 'нет'")
+			Println("Введите 'да' или 'нет'")
 		}
 	}
 }

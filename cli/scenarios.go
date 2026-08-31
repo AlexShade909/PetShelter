@@ -2,7 +2,6 @@ package cli
 
 import (
 	"PetShelter/internal"
-	"fmt"
 )
 
 func ScenarioTakeDog(dogs map[string]internal.Dog) bool {
@@ -10,13 +9,13 @@ func ScenarioTakeDog(dogs map[string]internal.Dog) bool {
 	nickname := ReadNonEmptyString("Введите кличку собаки: ")
 	d, ok := internal.FindDog(dogs, nickname)
 	if !ok {
-		fmt.Println("Собака с такой кличкой не найдена")
+		Println("Собака с такой кличкой не найдена")
 		return true
 	}
 	PrintDogInfo(dogs, nickname)
 	if ReadYesNo("Забрать из приюта? (да/нет): ") {
 		internal.RemoveDog(dogs, nickname)
-		fmt.Println("Собака удалена из общего списка, приюта и поликлиники")
+		Println("Собака удалена из общего списка, приюта и поликлиники")
 		PrintShelterInfo(d.Shelter)
 		PrintPoliclinicInfo(d.Policlinic)
 	}
@@ -26,8 +25,8 @@ func ScenarioTakeDog(dogs map[string]internal.Dog) bool {
 
 func ScenarioAddDog(dogs map[string]internal.Dog, shelters []internal.Shelter, policlinics []internal.Policlinic) bool {
 	nickname := ReadNonEmptyString("Введите кличку: ")
-	age := ReadInt("Введите возраст: ")
-	weight := ReadFloat("Введите вес: ")
+	age := ReadNonEmptyString("Введите возраст: ")
+	weight := ReadNonEmptyString("Введите вес: ")
 	date := ReadNonEmptyString("Введите дату поступления: ")
 	shelterChoice := ReadMenuChoice("Выберите приют: ", 0, len(shelters)-1)
 	shelter := &shelters[shelterChoice]
@@ -42,7 +41,8 @@ func ScenarioAddDog(dogs map[string]internal.Dog, shelters []internal.Shelter, p
 		shelter,
 		policlinic,
 	)
-	fmt.Println("Собака добавлена:", dog.Nickname)
+	Println("Собака добавлена:")
+	Println(dog.Nickname)
 
 	return ReadYesNo("Смотреть ещё? (да/нет): ")
 }

@@ -1,6 +1,6 @@
 package internal
 
-func AddDog(dogs map[string]Dog, nickname string, age int, weightKg float64, checkInDate string, shelter *Shelter, policlinic *Policlinic) *Dog {
+func AddDog(dogs map[string]Dog, nickname string, age string, weightKg string, checkInDate string, shelter *Shelter, policlinic *Policlinic) *Dog {
 	d := &Dog{
 		Nickname:    nickname,
 		Age:         age,
