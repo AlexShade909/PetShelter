@@ -3,13 +3,15 @@ package main
 import (
 	"PetShelter/cli"
 	"PetShelter/internal"
+	"PetShelter/network"
 	"fmt"
+	"log"
 )
 
 func main() {
-	//if err := network.Connect(); err != nil {
-	//	log.Fatalln(err.Error())
-	//}
+	if err := network.Connect(); err != nil {
+		log.Fatalln(err.Error())
+	}
 
 	Shelters := internal.CreateShelters()
 	Policlinics := internal.CreatePoliclinics()
