@@ -6,13 +6,8 @@ import (
 )
 
 func PrintDogInfo(dogs map[string]internal.Dog, nickname string) {
-	d := dogs[nickname]
-	fmt.Println("Кличка:", d.Nickname)
-	fmt.Println("Возраст, лет:", d.Age)
-	fmt.Println("Вес, кг:", d.WeightKg)
-	fmt.Println("Когда попал в приют:", d.CheckInDate)
-	fmt.Println("К какому шелтеру относится:", d.Shelter.Address)
-	fmt.Println("К какой поликлинике относится:", d.Policlinic.Address)
+	dog := dogs[nickname]
+	dog.Print()
 }
 
 func PrintDogList(dogs map[string]internal.Dog) {
