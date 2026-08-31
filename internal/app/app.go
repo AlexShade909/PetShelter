@@ -35,9 +35,11 @@ func (a *App) RunPetshelter(ctx context.Context) error {
 
 	mux := http.NewServeMux()
 
+	// Тут мы подключаем контроллеры к серверу
 	mux.HandleFunc("GET /clinics/", clinicController.GetAll)
 
 	go func() {
+		// Тут мы запускаем сервер
 		log.Println("server is running...")
 		if err := http.ListenAndServe(":8080", mux); err != nil {
 			log.Println(err.Error())
