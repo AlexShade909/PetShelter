@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"PetShelter/internal/models"
+	"petshelter/internal/models"
 )
 
 // TODO: Написать контроллер поликлинники

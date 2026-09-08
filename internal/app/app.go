@@ -5,11 +5,11 @@ import (
 	"log"
 	"net/http"
 
-	"PetShelter/cli"
-	"PetShelter/internal"
-	"PetShelter/internal/controller"
-	"PetShelter/internal/service"
-	"PetShelter/network"
+	"petshelter/cli"
+	"petshelter/internal"
+	"petshelter/internal/controller"
+	"petshelter/internal/service"
+	"petshelter/network"
 )
 
 type App struct {

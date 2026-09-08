@@ -1,6 +1,6 @@
 package service
 
-import "PetShelter/internal/models"
+import "petshelter/internal/models"
 
 // TODO: Написать сервис поликлинники
 

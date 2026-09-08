@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"PetShelter/internal/app"
+	"petshelter/internal/app"
 )
 
 func main() {
