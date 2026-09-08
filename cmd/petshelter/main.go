@@ -13,17 +13,14 @@ func main() {
 		log.Fatalln(err.Error())
 	}
 	defer conn.Close()
-
 	cli.Init(conn, conn)
-
 	Shelters := internal.CreateShelters()
 	Policlinics := internal.CreatePoliclinics()
 	Dogs := internal.CreateDogs(Shelters, Policlinics)
-
 	flag := true
-
 	for flag {
-		choice := cli.ValidationReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
+		cli.Println("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ")
+		choice := cli.ValidationReadMenuChoice(1, 3)
 		switch choice {
 		case 1:
 			cli.Println("Выбрать собаку, я пользователь")
