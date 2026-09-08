@@ -1,10 +1,10 @@
 package main
 
 import (
-	"PetShelter/cli"
-	"PetShelter/internal"
-	"PetShelter/network"
 	"log"
+	"petshelter/cli"
+	"petshelter/internal"
+	"petshelter/network"
 )
 
 func main() {
