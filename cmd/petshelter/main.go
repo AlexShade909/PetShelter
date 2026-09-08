@@ -23,7 +23,7 @@ func main() {
 	flag := true
 
 	for flag {
-		choice := cli.ReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
+		choice := cli.ValidationReadMenuChoice("1. Выбрать собаку\n2. Добавить собаку\n3. Выход\n ", 1, 3)
 		switch choice {
 		case 1:
 			cli.Println("Выбрать собаку, я пользователь")
