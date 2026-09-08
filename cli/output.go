@@ -6,8 +6,7 @@ import (
 
 func PrintDogInfo(dogs map[string]internal.Dog, nickname string) {
 	d := dogs[nickname]
-	Print("Кличка: ")
-	Println(d.Nickname)
+	Println("Кличка: ", d.Nickname)
 	Print("Возраст, лет: ")
 	Println(d.Age)
 	Print("Вес, кг: ")

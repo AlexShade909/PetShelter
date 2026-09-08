@@ -16,20 +16,19 @@ func Init(r io.Reader, w io.Writer) {
 	writer = w
 }
 
-func Print(s string) {
-	fmt.Fprint(writer, s)
+func Print(s ...any) {
+	fmt.Fprint(writer, any(s))
 }
 
-func Println(s string) {
-	fmt.Fprintln(writer, s)
+func Println(s ...any) {
+	fmt.Fprintln(writer, any(s))
 }
 func Printf(format string, args ...interface{}) {
 	fmt.Fprintf(writer, format, args...)
 }
 
-func ValidationReadMenuChoice(prompt string, min, max int) int {
+func ValidationReadMenuChoice(min, max int) int {
 	for {
-		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			Println("Ошибка чтения ввода, попробуйте снова")
@@ -49,9 +48,8 @@ func ValidationReadMenuChoice(prompt string, min, max int) int {
 	}
 }
 
-func ValidationReadNonEmptyString(prompt string) string {
+func InputValidString() string {
 	for {
-		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			Println("Ошибка чтения ввода, попробуйте снова")
@@ -66,9 +64,8 @@ func ValidationReadNonEmptyString(prompt string) string {
 	}
 }
 
-func ValidationReadFloat(prompt string) float64 {
+func InputValidFloat() float64 {
 	for {
-		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			Println("Ошибка чтения ввода, попробуйте снова")
@@ -85,9 +82,8 @@ func ValidationReadFloat(prompt string) float64 {
 	}
 }
 
-func ValidationReadInt(prompt string) int {
+func InputValidInt() int {
 	for {
-		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			Println("Ошибка чтения ввода, попробуйте снова")
@@ -103,9 +99,8 @@ func ValidationReadInt(prompt string) int {
 	}
 }
 
-func ValidationReadYesNo(prompt string) bool {
+func ValidYesNo() bool {
 	for {
-		Print(prompt)
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			Println("Ошибка чтения ввода, попробуйте снова")
