@@ -1,6 +1,26 @@
 package main
 
 import (
+	"context"
+	"log"
+	"os/signal"
+	"syscall"
+
+	"petshelter/internal/app"
+)
+
+func main() {
+	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer cancel()
+	app := app.New()
+	if err := app.RunPetShelter(ctx); err != nil {
+		log.Fatal(err.Error())
+	}
+}
+
+/*package main
+
+import (
 	"log"
 	"petshelter/cli"
 	"petshelter/internal"
@@ -34,3 +54,5 @@ func main() {
 		}
 	}
 }
+
+*/
