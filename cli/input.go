@@ -8,8 +8,12 @@ import (
 	"strings"
 )
 
-var reader *bufio.Reader
-var writer io.Writer
+// TODO: Переделать на структуру
+
+var (
+	reader *bufio.Reader
+	writer io.Writer
+)
 
 func Init(r io.Reader, w io.Writer) {
 	reader = bufio.NewReader(r)
@@ -23,11 +27,12 @@ func Print(s string) {
 func Println(s string) {
 	fmt.Fprintln(writer, s)
 }
+
 func Printf(format string, args ...interface{}) {
 	fmt.Fprintf(writer, format, args...)
 }
 
-func ValidationReadMenuChoice(prompt string, min, max int) int {
+func ReadMenuChoice(prompt string, min, max int) int {
 	for {
 		Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -49,7 +54,7 @@ func ValidationReadMenuChoice(prompt string, min, max int) int {
 	}
 }
 
-func ValidationReadNonEmptyString(prompt string) string {
+func ReadNonEmptyString(prompt string) string {
 	for {
 		Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -66,7 +71,7 @@ func ValidationReadNonEmptyString(prompt string) string {
 	}
 }
 
-func ValidationReadFloat(prompt string) float64 {
+func ReadFloat(prompt string) float64 {
 	for {
 		Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -85,7 +90,7 @@ func ValidationReadFloat(prompt string) float64 {
 	}
 }
 
-func ValidationReadInt(prompt string) int {
+func ReadInt(prompt string) int {
 	for {
 		Print(prompt)
 		line, err := reader.ReadString('\n')
@@ -103,7 +108,7 @@ func ValidationReadInt(prompt string) int {
 	}
 }
 
-func ValidationReadYesNo(prompt string) bool {
+func ReadYesNo(prompt string) bool {
 	for {
 		Print(prompt)
 		line, err := reader.ReadString('\n')
